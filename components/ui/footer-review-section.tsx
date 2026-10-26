@@ -10,8 +10,7 @@ import {
   Send, 
   Mail, 
   Phone, 
-  MapPin, 
-  Video
+  MapPin
 } from "lucide-react";
 import TestimonialCard, { Testimonial } from "@/components/ui/multi-media-testimonial";
 
@@ -205,11 +204,6 @@ export const FooterReviewSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold tracking-wider uppercase mb-5">
-            <Video className="w-3.5 h-3.5 text-purple-400" />
-            Real Student Success Stories
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
             Our students love learning with us because we deliver real results.
           </h2>

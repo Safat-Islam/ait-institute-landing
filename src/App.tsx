@@ -209,13 +209,6 @@ export default function App() {
 
       {/* AI + Automation + Animated Capsule Section */}
       <section className="relative z-10 max-w-4xl mx-auto px-4 py-20 text-center flex flex-col items-center" id="course">
-        <div className="inline-flex items-center gap-2 mb-6">
-          <span className="w-2 h-2 bg-purple-600 rounded-full" />
-          <span className="text-xs font-extrabold tracking-wider text-purple-600 uppercase">
-            Now Accepting New Students
-          </span>
-        </div>
-
         <h2 className="text-4xl sm:text-6xl font-black tracking-tight leading-tight mb-6 flex flex-col items-center gap-3">
           <span>AI + Automation +</span>
           <span className="inline-flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-700 text-white px-9 py-2 rounded-2xl shadow-xl shadow-purple-500/40 text-3xl sm:text-5xl transition-all duration-300">
