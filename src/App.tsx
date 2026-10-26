@@ -11,10 +11,13 @@ import FooterReviewSection from "@/components/ui/footer-review-section";
 import MasterclassPage from "@/components/pages/masterclass-page";
 import DashboardPage from "@/components/pages/dashboard-page";
 import FAQPage from "@/components/pages/faq-page";
+import CaseStudiesPage from "@/components/pages/case-studies-page";
+import AboutPage from "@/components/pages/about-page";
+import ContactPage from "@/components/pages/contact-page";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export type PageView = "home" | "masterclass" | "dashboard" | "faq";
+export type PageView = "home" | "masterclass" | "dashboard" | "faq" | "case-studies" | "about" | "contact";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageView>("home");
@@ -133,7 +136,7 @@ export default function App() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7 font-medium text-slate-600 text-sm">
+        <nav className="hidden lg:flex items-center gap-6 font-medium text-slate-600 text-xs sm:text-sm">
           <button 
             onClick={() => setCurrentPage("home")}
             className={`transition-colors relative py-1 ${currentPage === "home" ? "text-purple-600 font-bold" : "hover:text-purple-600"}`}
@@ -153,6 +156,16 @@ export default function App() {
               FREE
             </span>
             {currentPage === "masterclass" && (
+              <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-purple-600 rounded-full" />
+            )}
+          </button>
+
+          <button 
+            onClick={() => setCurrentPage("case-studies")}
+            className={`transition-colors relative py-1 ${currentPage === "case-studies" ? "text-purple-600 font-bold" : "hover:text-purple-600"}`}
+          >
+            Case Studies
+            {currentPage === "case-studies" && (
               <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-purple-600 rounded-full" />
             )}
           </button>
@@ -179,11 +192,31 @@ export default function App() {
           </button>
 
           <button 
+            onClick={() => setCurrentPage("about")}
+            className={`transition-colors relative py-1 ${currentPage === "about" ? "text-purple-600 font-bold" : "hover:text-purple-600"}`}
+          >
+            Mentors
+            {currentPage === "about" && (
+              <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-purple-600 rounded-full" />
+            )}
+          </button>
+
+          <button 
             onClick={() => setCurrentPage("faq")}
             className={`transition-colors relative py-1 ${currentPage === "faq" ? "text-purple-600 font-bold" : "hover:text-purple-600"}`}
           >
             FAQ
             {currentPage === "faq" && (
+              <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-purple-600 rounded-full" />
+            )}
+          </button>
+
+          <button 
+            onClick={() => setCurrentPage("contact")}
+            className={`transition-colors relative py-1 ${currentPage === "contact" ? "text-purple-600 font-bold" : "hover:text-purple-600"}`}
+          >
+            Contact
+            {currentPage === "contact" && (
               <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-purple-600 rounded-full" />
             )}
           </button>
@@ -239,7 +272,35 @@ export default function App() {
           />
         )}
 
-        {/* PAGE 3: FAQ & GUARANTEES */}
+        {/* PAGE 3: CASE STUDIES */}
+        {currentPage === "case-studies" && (
+          <CaseStudiesPage 
+            key="case-studies"
+            onNavigateHome={() => setCurrentPage("home")}
+            onNavigatePricing={() => {
+              setCurrentPage("home");
+              setTimeout(() => {
+                if (lenisRef.current) lenisRef.current.scrollTo("#pricing", { offset: -20 });
+              }, 150);
+            }}
+          />
+        )}
+
+        {/* PAGE 4: ABOUT & MENTORS */}
+        {currentPage === "about" && (
+          <AboutPage 
+            key="about"
+            onNavigateHome={() => setCurrentPage("home")}
+            onNavigatePricing={() => {
+              setCurrentPage("home");
+              setTimeout(() => {
+                if (lenisRef.current) lenisRef.current.scrollTo("#pricing", { offset: -20 });
+              }, 150);
+            }}
+          />
+        )}
+
+        {/* PAGE 5: FAQ & GUARANTEES */}
         {currentPage === "faq" && (
           <FAQPage 
             key="faq"
@@ -253,7 +314,15 @@ export default function App() {
           />
         )}
 
-        {/* PAGE 4 (DEFAULT): FULL RESPONSIVE LANDING PAGE */}
+        {/* PAGE 6: CONTACT & CONSULTATION */}
+        {currentPage === "contact" && (
+          <ContactPage 
+            key="contact"
+            onNavigateHome={() => setCurrentPage("home")}
+          />
+        )}
+
+        {/* PAGE 7 (DEFAULT): FULL RESPONSIVE LANDING PAGE */}
         {currentPage === "home" && (
           <motion.div
             key="home"
