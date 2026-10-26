@@ -34,17 +34,17 @@ export const StackedCards: React.FC = () => {
             gsap.set(overlay, { opacity: 0 });
         });
 
-        // Generous scroll runway so scrolling feels gradual, controlled, and buttery
-        const scrollDistance = cards.length * 750;
+        // Fast, short scroll runway so cards glide quickly and responsively
+        const scrollDistance = cards.length * 180;
 
-        // Master pinned timeline
+        // Master pinned timeline with fast, snappy scrub
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: stage,
                 start: "top top",
                 end: `+=${scrollDistance}`,
                 pin: true,
-                scrub: 1.2, // Silky smooth inertia damping
+                scrub: 0.6, // Fast, responsive scrub
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
             }
@@ -111,10 +111,6 @@ export const StackedCards: React.FC = () => {
                     pointerEvents: 'none'
                 }} />
 
-                <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold tracking-widest uppercase bg-purple-500/20 text-purple-300 border border-purple-500/30 mb-4">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-                    Interactive 3D Stacking Cards
-                </span>
                 <h2 className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4 leading-tight">
                     The Full Curriculum
                 </h2>
