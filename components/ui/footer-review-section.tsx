@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { 
-  Star, 
   CheckCircle2, 
   ArrowUpRight, 
   MessageSquare, 
@@ -12,7 +11,6 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  Award,
   Video
 } from "lucide-react";
 import TestimonialCard, { Testimonial } from "@/components/ui/multi-media-testimonial";
@@ -218,26 +216,6 @@ export const FooterReviewSection: React.FC = () => {
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
             See how creators, freelancers, and entrepreneurs are building 6-figure automated YouTube channels and generating passive dollar income with AI.
           </p>
-
-          {/* Social Proof Capsule */}
-          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-6 py-3 px-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-xl backdrop-blur-md">
-            <div className="flex items-center gap-1.5 text-amber-400">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-              ))}
-              <span className="ml-2 font-bold text-white text-sm">4.9 / 5.0</span>
-            </div>
-            <div className="hidden sm:block w-px h-5 bg-slate-700" />
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>3,800+ Active Students</span>
-            </div>
-            <div className="hidden sm:block w-px h-5 bg-slate-700" />
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
-              <Award className="w-4 h-4 text-purple-400" />
-              <span>94% Success Rate</span>
-            </div>
-          </div>
         </div>
 
         {/* Multi-Media Masonry Grid */}
