@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+"use client";
+
+import * as React from "react";
 import { 
   Star, 
   CheckCircle2, 
   ArrowUpRight, 
   MessageSquare, 
-  Heart, 
-  Sparkles, 
-  ShieldCheck, 
   Youtube, 
   Facebook, 
   Send, 
@@ -14,143 +13,210 @@ import {
   Phone, 
   MapPin, 
   Award,
-  TrendingUp,
-  Clock
+  Video
 } from "lucide-react";
+import TestimonialCard, { Testimonial } from "@/components/ui/multi-media-testimonial";
 
-interface Review {
-  id: number;
-  name: string;
-  role: string;
-  batch: string;
-  avatarText: string;
-  avatarBg: string;
-  rating: number;
-  date: string;
-  tag: string;
-  achievement: string;
-  content: string;
-  category: "all" | "earnings" | "beginners" | "monetization";
-}
-
-const REVIEWS: Review[] = [
+const testimonials: Testimonial[] = [
   {
-    id: 1,
     name: "Tanvir Ahmed",
-    role: "Faceless Creator & Student",
-    batch: "Batch 14",
-    avatarText: "TA",
-    avatarBg: "from-purple-600 to-indigo-600",
-    rating: 5,
-    date: "2 weeks ago",
-    tag: "Channel Monetized",
-    achievement: "Monetized in 28 Days • $1,420/mo",
-    content: "I started with zero experience in video editing. Following the Secret AI Software stack and the exact automation roadmap from Module 6 & 7, my channel got monetized in just 28 days! The 1:1 mentor support is honestly unmatched in Bangladesh.",
-    category: "monetization"
+    profile: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80",
+    title: "Monetized in 28 Days • $1,420/mo",
+    designation: "Faceless Creator (Batch 14)",
+    content:
+      "Ruvy and AIT Institute transformed the way I build faceless YouTube channels. The secret AI software stack and 1:1 mentor support are unmatched in Bangladesh!",
+    mediaUrl: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/crm(1)(1)(1).mp4",
+    thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
   },
   {
-    id: 2,
     name: "Nusrat Jahan",
-    role: "Content Creator & Freelancer",
-    batch: "Batch 12",
-    avatarText: "NJ",
-    avatarBg: "from-pink-500 to-rose-500",
-    rating: 5,
-    date: "1 month ago",
-    tag: "100K+ Subs",
-    achievement: "128K Subscribers • Silver Play Button",
-    content: "The workflow with ElevenLabs and Midjourney taught here saves me over 15 hours every single week. AIT Institute doesn't teach boring theory—they show real working channels and high-RPM niches that actually pay in dollars.",
-    category: "earnings"
+    profile: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
+    title: "128K Subscribers • Silver Play Button",
+    designation: "Content Creator (Batch 12)",
+    content:
+      "The workflow with ElevenLabs and Midjourney taught here saves me over 15 hours every single week. Perfect for anyone wanting dollar earnings from home.",
+    thumbnail: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80",
   },
   {
-    id: 3,
     name: "Sabbir Hossain",
-    role: "Full-Time YouTuber",
-    batch: "Batch 16",
-    avatarText: "SH",
-    avatarBg: "from-blue-600 to-cyan-600",
-    rating: 5,
-    date: "3 weeks ago",
-    tag: "3 Active Channels",
-    achievement: "3 Channels Monetized • $2,850/mo",
-    content: "The community and trainer support alone are worth 10x the course fee. Whenever I had doubts regarding YouTube algorithm updates or copyright policies, the mentors answered within minutes in the VIP group. Truly game changing!",
-    category: "earnings"
+    profile: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
+    title: "3 Monetized Channels on Autopilot",
+    designation: "Full-Time Creator (Batch 16)",
+    content: "The mentor support alone is worth 10x the course fee. Managing multiple high-RPM automated channels is now completely streamlined.",
+    mediaUrl: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/crm(1)(1)(1).mp4",
+    thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=80",
   },
   {
-    id: 4,
+    type: "text",
+    name: "Diana Prince",
+    profile: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80",
+    title: "Flawless Scheduling & Production",
+    designation: "Full Stack Creator",
+    content:
+      "The UI is sleek, intuitive, and makes scheduling video production a breeze. 10/10 experience!",
+    rating: 5,
+  },
+  {
     name: "Fahim Rahman",
-    role: "University Student & Creator",
-    batch: "Batch 11",
-    avatarText: "FR",
-    avatarBg: "from-emerald-600 to-teal-600",
-    rating: 5,
-    date: "Just now",
-    tag: "Zero to Dollar Earning",
-    achievement: "Quit 9-5 Job • Earning in USD",
-    content: "Earning dollars from home in Bangladesh felt far away until I enrolled in AIT Institute. The thumbnail psychology module doubled my CTR from 3.2% to 9.4%. Now I manage 2 channels completely on autopilot while pursuing my degree.",
-    category: "beginners"
+    profile: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80",
+    title: "Doubled CTR from 3.2% to 9.4%",
+    designation: "University Student (Batch 11)",
+    content:
+      "The Photoshop thumbnail psychology module doubled my click-through rate. Earning in USD right from Dhaka while continuing my studies.",
   },
   {
-    id: 5,
-    name: "Arif Chowdhury",
-    role: "Freelance Video Editor",
-    batch: "Batch 15",
-    avatarText: "AC",
-    avatarBg: "from-amber-500 to-orange-600",
-    rating: 5,
-    date: "1 month ago",
-    tag: "High RPM Niche",
-    achievement: "$4,100+ Total Channel Revenue",
-    content: "Module 14 on High-RPM US and UK targeting was an eye-opener. Even with fewer views, the earnings are 5x higher than local content. The course is crisp, straight to the point, and 100% practical.",
-    category: "monetization"
+    name: "Fiona Gallagher",
+    profile: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80",
+    title: "Smooth and Intuitive AI Interface",
+    designation: "Digital Creator",
+    content: "Creating cinematic b-roll with Flux AI and Hailuo makes my channels stand out immediately.",
+    thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
   },
   {
-    id: 6,
+    name: "George Martin",
+    profile: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80",
+    title: "Visually Stunning Faceless Videos",
+    designation: "Video Producer",
+    content: "The combination of CapCut Pro shortcuts and audio mixing tricks made video editing fast and fun.",
+    mediaUrl: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/crm(1)(1)(1).mp4",
+    thumbnail: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Hannah Lee",
+    profile: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&auto=format&fit=crop&q=80",
+    title: "Efficient Automation Workflow",
+    designation: "AI Strategist",
+    content:
+      "Testing different high-RPM niches has become effortless with the templates provided in the course.",
+  },
+  {
+    type: "text",
+    name: "Ian Wright",
+    profile: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&auto=format&fit=crop&q=80",
+    title: "Time-Saving Secret Tools",
+    designation: "Content Entrepreneur",
+    content:
+      "I can now generate full-length voiceovers and scripts without leaving my workspace. Saves so much time!",
+  },
+  {
+    name: "Jane Doe",
+    profile: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80",
+    title: "Clean Visual Presentation",
+    designation: "AI Researcher",
+    content: "Real practical insights instead of theoretical fluff. Every module is action-oriented.",
+    thumbnail: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Kyle Brown",
+    profile: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop&q=80",
+    title: "Smooth Playback & Video Editing",
+    designation: "Motion Designer",
+    content: "The video editing secrets for YouTube retention helped push my latest video to 500K+ views.",
+    mediaUrl: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/crm(1)(1)(1).mp4",
+    thumbnail: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Laura Kim",
+    profile: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80",
+    title: "Simple Yet Powerful Framework",
+    designation: "Freelance Editor",
+    content:
+      "The simplicity of this system is unmatched. Perfect for beginners and busy individuals looking for passive income.",
+  },
+  {
+    name: "Michael Scott",
+    profile: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80",
+    title: "Organized Channel Management",
+    designation: "Team Lead",
+    content:
+      "I manage 4 channels effortlessly with my small team. Love the clean methodology and responsiveness of mentors.",
+  },
+  {
+    name: "Nina Patel",
+    profile: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80",
+    title: "Elegant Production Workflow",
+    designation: "Media Specialist",
+    content: "From script writing in Claude to ElevenLabs voices, the pipeline runs like clockwork.",
+    mediaUrl: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/crm(1)(1)(1).mp4",
+    thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Oscar Wilde",
+    profile: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
+    title: "Impressive User Flow & Monetization",
+    designation: "Content Strategist",
+    content: "Within 45 days of following the curriculum, my first check cleared directly to my local bank account.",
+    mediaUrl: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/crm(1)(1)(1).mp4",
+    thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Pam Beesly",
+    profile: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=80",
+    title: "Showcasing Real Student Results",
+    designation: "Graphic Designer",
+    content:
+      "Love the community vibe and how easy it is to ask questions and get direct feedback on videos.",
+  },
+  {
+    name: "Quentin Tarantino",
+    profile: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80",
+    title: "Perfect for Creative Storytellers",
+    designation: "Director & Editor",
+    content: "The pacing and retention techniques taught in Module 8 are pure gold for viral reach.",
+    thumbnail: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Rachel Green",
+    profile: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&auto=format&fit=crop&q=80",
+    title: "Enhanced Monetization & RPM",
+    designation: "Marketing Specialist",
+    content: "Targeting Tier 1 countries (US/UK/Canada) increased my channel RPM by over 400%!",
+    mediaUrl: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/crm(1)(1)(1).mp4",
+    thumbnail: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80",
+  },
+  {
+    name: "Steve Rogers",
+    profile: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80",
+    title: "Streamlined Creation Process",
+    designation: "Team Lead",
+    content:
+      "This system streamlines our content production pipeline like never before. Highly efficient and scalable!",
+  },
+  {
     name: "Sumaiya Akter",
-    role: "Housewife & Part-Time Creator",
-    batch: "Batch 13",
-    avatarText: "SA",
-    avatarBg: "from-violet-600 to-purple-700",
-    rating: 5,
-    date: "2 months ago",
-    tag: "Beginner Friendly",
-    achievement: "1st Dollar Check in 45 Days",
-    content: "I had never opened Photoshop or CapCut before this. The step-by-step videos and homework reviews gave me the exact confidence I needed. Best decision I made this year for financial independence!",
-    category: "beginners"
-  }
+    profile: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80",
+    title: "Beautifully Structured Curriculum",
+    designation: "Creator (Batch 13)",
+    content:
+      "Clean, intuitive, and extremely beginner-friendly. I had zero editing background and now run a profitable channel!",
+  },
 ];
 
 export const FooterReviewSection: React.FC = () => {
-  const [filter, setFilter] = useState<"all" | "monetization" | "earnings" | "beginners">("all");
-
-  const filteredReviews = filter === "all" 
-    ? REVIEWS 
-    : REVIEWS.filter(r => r.category === filter);
-
   return (
-    <div className="relative w-full bg-[#0B0D17] text-white overflow-hidden pt-24 border-t border-slate-800">
+    <div className="relative w-full bg-[#0B0D17] text-white overflow-hidden pt-20 border-t border-slate-800">
       
       {/* Background ambient lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-40 right-10 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       {/* =========================================================================
-          REVIEWS & STUDENT TESTIMONIALS SECTION
+          MULTI-MEDIA TESTIMONIALS & REVIEWS SECTION
           ========================================================================= */}
       <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-24">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold tracking-wider uppercase mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            Real Student Reviews
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold tracking-wider uppercase mb-5">
+            <Video className="w-3.5 h-3.5 text-purple-400" />
+            Real Student Success Stories
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
-            Loved by 3,800+ Creators &amp; Students
+            Our students love learning with us because we deliver real results.
           </h2>
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-            See how our students in Bangladesh and across the world are building sustainable 6-figure faceless YouTube channels and earning in dollars.
+            See how creators, freelancers, and entrepreneurs are building 6-figure automated YouTube channels and generating passive dollar income with AI.
           </p>
 
           {/* Social Proof Capsule */}
@@ -164,96 +230,28 @@ export const FooterReviewSection: React.FC = () => {
             <div className="hidden sm:block w-px h-5 bg-slate-700" />
             <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>3,800+ Verified Alumni</span>
+              <span>3,800+ Active Students</span>
             </div>
             <div className="hidden sm:block w-px h-5 bg-slate-700" />
             <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300">
               <Award className="w-4 h-4 text-purple-400" />
-              <span>94% Success &amp; Satisfaction</span>
+              <span>94% Success Rate</span>
             </div>
           </div>
+        </div>
 
-          {/* Filter Pills */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            {[
-              { id: "all", label: "All Reviews (3,800+)" },
-              { id: "monetization", label: "🚀 Fast Monetization" },
-              { id: "earnings", label: "💵 Dollar Earnings" },
-              { id: "beginners", label: "🌱 Absolute Beginners" },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setFilter(tab.id as any)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 ${
-                  filter === tab.id
-                    ? "bg-purple-600 text-white shadow-lg shadow-purple-600/30 scale-105"
-                    : "bg-slate-900/60 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800/80"
-                }`}
-              >
-                {tab.label}
-              </button>
+        {/* Multi-Media Masonry Grid */}
+        {Array.isArray(testimonials) && testimonials.length > 0 ? (
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+            {testimonials.map((t, i) => (
+              <TestimonialCard key={i} testimonial={t} />
             ))}
           </div>
-        </div>
-
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredReviews.map((review) => (
-            <div
-              key={review.id}
-              className="group relative flex flex-col justify-between p-6 rounded-2xl bg-slate-900/70 border border-slate-800/80 hover:border-purple-500/40 hover:bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-900/20 backdrop-blur-sm"
-            >
-              {/* Top Row: Rating & Achievement Badge */}
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/10 text-purple-300 border border-purple-500/20">
-                    <TrendingUp className="w-3 h-3 text-purple-400" />
-                    {review.tag}
-                  </span>
-                </div>
-
-                {/* Achievement Highlight */}
-                <div className="mb-3.5 px-3 py-1.5 rounded-lg bg-slate-950/60 border border-slate-800/90 text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-                  <span>{review.achievement}</span>
-                </div>
-
-                {/* Review Body */}
-                <p className="text-slate-300 text-sm leading-relaxed mb-6 font-normal">
-                  "{review.content}"
-                </p>
-              </div>
-
-              {/* Reviewer Profile */}
-              <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full bg-gradient-to-tr ${review.avatarBg} flex items-center justify-center text-white text-xs font-bold shadow-md`}>
-                    {review.avatarText}
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white group-hover:text-purple-300 transition-colors flex items-center gap-1.5">
-                      {review.name}
-                      <span title="Verified Student">
-                        <ShieldCheck className="w-3.5 h-3.5 text-sky-400 inline" />
-                      </span>
-                    </h4>
-                    <p className="text-[11px] text-slate-400">{review.role} • <span className="text-purple-400 font-medium">{review.batch}</span></p>
-                  </div>
-                </div>
-
-                <span className="text-[11px] text-slate-500 flex items-center gap-1">
-                  <Clock className="w-3 h-3" />
-                  {review.date}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        ) : (
+          <p className="text-center text-muted-foreground">
+            No testimonials yet.
+          </p>
+        )}
 
         {/* Bottom CTA Callout */}
         <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-purple-900/40 via-indigo-950/40 to-slate-900 border border-purple-500/20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
