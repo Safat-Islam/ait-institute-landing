@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIT Institute - Master AI Automation Before The World Leaves You Behind</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       AIT Institute - Global Reset & Variables
+       ========================================================================== */
+    :root {
+      --primary-purple: #7C3AED;
+      --primary-purple-dark: #6D28D9;
+      --primary-purple-light: #9370DB;
+      --secondary-indigo: #6366F1;
+      --text-dark: #0F172A;
+      --text-slate: #475569;
+      --text-muted: #64748B;
+      --border-light: rgba(124, 58, 237, 0.18);
+      --bg-canvas: #FAF9FF;
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-canvas);
+      color: var(--text-dark);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ---------------- Ambient Background Lights ---------------- */
+    .bg-glow {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(90px);
+    }
+
+    .bg-glow-left {
+      top: -8%;
+      left: -10%;
+      width: 55vw;
+      height: 55vw;
+      max-width: 650px;
+      max-height: 650px;
+      background: radial-gradient(circle, rgba(236, 201, 255, 0.5) 0%, rgba(243, 232, 255, 0.2) 50%, transparent 75%);
+    }
+
+    .bg-glow-right {
+      top: 5%;
+      right: -8%;
+      width: 50vw;
+      height: 50vw;
+      max-width: 600px;
+      max-height: 600px;
+      background: radial-gradient(circle, rgba(216, 210, 255, 0.45) 0%, rgba(230, 225, 255, 0.15) 55%, transparent 75%);
+    }
+
+    .bg-glow-bottom {
+      bottom: -15%;
+      left: 25%;
+      width: 50vw;
+      height: 40vw;
+      max-width: 700px;
+      max-height: 500px;
+      background: radial-gradient(circle, rgba(220, 215, 255, 0.35) 0%, transparent 70%);
+    }
+
+    /* ---------------- Header / Navbar ---------------- */
+    .site-header {
+      position: relative;
+      z-index: 50;
+      width: 100%;
+      padding: 22px 36px;
+    }
+
+    .header-container {
+      max-width: 1260px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Brand Logo */
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-ait-svg {
+      width: 48px;
+      height: 28px;
+      display: block;
+    }
+
+    .logo-text {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--text-dark);
+    }
+
+    /* Nav Links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #4B5563;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4px 2px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-purple);
+    }
+
+    .nav-link.active {
+      color: var(--primary-purple);
+      font-weight: 600;
+    }
+
+    .nav-link.active .active-indicator {
+      position: absolute;
+      bottom: -4px;
+      width: 100%;
+      min-width: 28px;
+      height: 2.5px;
+      background: var(--primary-purple);
+      border-radius: 999px;
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-ban {
+      background: #FFFFFF;
+      border: 1.5px solid #DDD6FE;
+      color: var(--primary-purple-dark);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 8px 24px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    .btn-ban:hover {
+      background: #F8FAFC;
+      border-color: var(--primary-purple);
+      transform: translateY(-1px);
+    }
+
+    .btn-dashboard {
+      background: linear-gradient(135deg, #7C3AED 0%, #6366F1 100%);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 9px 22px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-dashboard:hover {
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .btn-icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* ---------------- Hero Section ---------------- */
+    .hero-section {
+      position: relative;
+      z-index: 10;
+      padding: 24px 20px 80px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-container {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Program Badge */
+    .program-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(124, 58, 237, 0.06);
+      border: 1px solid rgba(124, 58, 237, 0.22);
+      padding: 6px 18px;
+      border-radius: 9999px;
+      margin-bottom: 28px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--primary-purple);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .badge-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--primary-purple);
+      text-transform: uppercase;
+    }
+
+    /* Hero Title */
+    .hero-title {
+      font-size: clamp(2.6rem, 5.2vw, 4.85rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.038em;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .title-line-1 {
+      display: block;
+    }
+
+    .title-line-2 {
+      display: block;
+    }
+
+    .gradient-world {
+      background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-behind {
+      display: block;
+      background: linear-gradient(135deg, #A78BFA 0%, #C4B5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+    }
+
+    /* Stats Pill Capsule */
+    .stats-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid #EBE4FA;
+      box-shadow: 0 4px 20px -2px rgba(124, 58, 237, 0.06);
+      border-radius: 9999px;
+      padding: 8px 32px;
+      margin-bottom: 44px;
+      gap: 28px;
+    }
+
+    .stat-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .stat-num {
+      color: var(--primary-purple);
+      font-weight: 800;
+      font-size: 0.98rem;
+    }
+
+    .stat-label {
+      color: #1E293B;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ---------------- Video Player Container ---------------- */
+    .video-container-outer {
+      width: 100%;
+      max-width: 991px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .video-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 991 / 557;
+      max-width: 991px;
+      border-radius: 24px;
+      background: #000000;
+      border: 1.5px solid rgba(124, 58, 237, 0.22);
+      box-shadow: 0 24px 65px -12px rgba(124, 58, 237, 0.25), 0 0 0 1px rgba(124, 58, 237, 0.12);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-card:hover {
+      box-shadow: 0 28px 75px -10px rgba(124, 58, 237, 0.32), 0 0 0 1px rgba(124, 58, 237, 0.18);
+    }
+
+    /* YouTube Iframe */
+    .yt-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 22px;
+      z-index: 1;
+    }
+
+    /* Interactive Thumbnail & Play Overlay */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .video-overlay.is-playing {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .overlay-thumbnail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .video-overlay:hover .overlay-thumbnail {
+      transform: scale(1.02);
+    }
+
+    /* Top YouTube Badge */
+    .yt-top-icon {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    }
+
+    .yt-svg-badge {
+      width: 54px;
+      height: 38px;
+      display: block;
+    }
+
+    /* Circular Center Play Button */
+    .play-btn-circle {
+      position: relative;
+      z-index: 20;
+      width: 72px;
+      height: 72px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 0 0 4px rgba(255, 255, 255, 0.35);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+
+    .video-overlay:hover .play-btn-circle {
+      transform: scale(1.12);
+      box-shadow: 0 16px 36px rgba(124, 58, 237, 0.4), 0 0 0 8px rgba(255, 255, 255, 0.45);
+    }
+
+    .play-arrow {
+      width: 28px;
+      height: 28px;
+      color: var(--primary-purple);
+      margin-left: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .play-btn-pulse {
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      animation: pulse-ring 2s infinite ease-out;
+      pointer-events: none;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.25);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1.25);
+        opacity: 0;
+      }
+    }
+
+    /* Video Caption */
+    .video-caption {
+      margin-top: 16px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.01em;
+    }
+
+    /* ==========================================================================
+       Section 1: AI + Automation + [Animated Capsule] Banner
+       ========================================================================== */
+    .passive-income-section {
+      position: relative;
+      z-index: 10;
+      padding: 100px 20px 80px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .section-container {
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Badge */
+    .accepting-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .badge-dot-purple {
+      width: 7px;
+      height: 7px;
+      background-color: var(--primary-purple);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .accepting-text {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--primary-purple);
+      text-transform: uppercase;
+    }
+
+    /* Heading with 3D Purple Capsule */
+    .passive-heading {
+      font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .heading-part {
+      display: block;
+    }
+
+    /* Continuous Animated Purple Capsule */
+    .passive-income-capsule {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+      color: #FFFFFF;
+      padding: 8px 38px;
+      border-radius: 22px;
+      box-shadow: 0 18px 40px -6px rgba(124, 58, 237, 0.45);
+      position: relative;
+      overflow: hidden;
+      min-height: 64px;
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .passive-income-capsule:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 48px -6px rgba(124, 58, 237, 0.55);
+    }
+
+    .rotating-text-item {
+      display: inline-block;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .rotating-text-item.anim-out {
+      transform: translateY(-35px) scale(0.92);
+      opacity: 0;
+    }
+
+    .rotating-text-item.anim-in-prep {
+      transform: translateY(35px) scale(0.92);
+      opacity: 0;
+    }
+
+    /* Subtitle Description */
+    .passive-description {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #475569;
+      max-width: 680px;
+      margin-bottom: 38px;
+    }
+
+    .passive-description strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    /* CTA Row */
+    .passive-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-purple {
+      background: linear-gradient(135deg, #7C3AED 0%, #6366F1 100%);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 14px 34px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 26px -4px rgba(124, 58, 237, 0.45);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary-purple:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px -4px rgba(124, 58, 237, 0.55);
+    }
+
+    .arrow-icon {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary-purple:hover .arrow-icon {
+      transform: translateX(3px);
+    }
+
+    .btn-secondary-outline {
+      background: #FFFFFF;
+      color: var(--primary-purple-dark);
+      border: 1px solid #EDE9FE;
+      text-decoration: none;
+      font-size: 0.96rem;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary-outline:hover {
+      background: #FAF8FF;
+      border-color: #DDD6FE;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.08);
+    }
+
+    .play-icon-circle {
+      width: 22px;
+      height: 22px;
+      color: var(--primary-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .play-icon-circle svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Metrics Divider */
+    .metrics-divider {
+      width: 100%;
+      max-width: 760px;
+      height: 1px;
+      background-color: #F1F5F9;
+      margin-bottom: 40px;
+    }
+
+    /* Metrics Grid */
+    .metrics-grid {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .metric-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .metric-val {
+      font-size: 2.15rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .metric-lbl {
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .metric-stars {
+      display: flex;
+      gap: 3px;
+      color: var(--primary-purple);
+      font-size: 1.1rem;
+    }
+
+    .metric-sep {
+      width: 1px;
+      height: 42px;
+      background-color: #E2E8F0;
+    }
+
+    /* ==========================================================================
+       Section 2: Us VS Others Comparison Section
+       ========================================================================== */
+    .comparison-section {
+      position: relative;
+      z-index: 10;
+      padding: 80px 20px 120px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .comparison-container {
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .section-tag {
+      color: var(--primary-purple);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .comparison-title {
+      font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+      font-weight: 900;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .comparison-subtitle {
+      color: var(--primary-purple);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .comparison-description {
+      color: #475569;
+      font-size: 1rem;
+      margin-bottom: 46px;
+    }
+
+    /* Comparison Card Table */
+    .comparison-card {
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: 1.5px solid #EDE9FE;
+      box-shadow: 0 16px 45px -8px rgba(124, 58, 237, 0.08);
+      overflow: hidden;
+    }
+
+    .comp-table-header {
+      background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      padding: 20px 32px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+    }
+
+    .comp-th.th-features {
+      flex: 1;
+      text-align: left;
+    }
+
+    .comp-th.th-us {
+      width: 110px;
+      text-align: center;
+    }
+
+    .comp-th.th-others {
+      width: 110px;
+      text-align: center;
+    }
+
+    .comp-table-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .comp-row {
+      display: flex;
+      align-items: center;
+      padding: 20px 32px;
+      border-bottom: 1px solid #F3EEFF;
+      transition: background-color 0.15s ease;
+    }
+
+    .comp-row:last-child {
+      border-bottom: none;
+    }
+
+    .comp-row:nth-child(even) {
+      background-color: #FAF9FF;
+    }
+
+    .comp-row:hover {
+      background-color: #F5F3FF;
+    }
+
+    .comp-feature {
+      flex: 1;
+      text-align: left;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #1E293B;
+    }
+
+    .comp-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .comp-cell.cell-us {
+      width: 110px;
+    }
+
+    .comp-cell.cell-others {
+      width: 110px;
+    }
+
+    /* Check Circle (US) */
+    .check-circle {
+      width: 28px;
+      height: 28px;
+      background-color: var(--primary-purple);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+    }
+
+    .check-circle svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Cross Circle (Others) */
+    .cross-circle {
+      width: 28px;
+      height: 28px;
+      background-color: #F3EEFF;
+      color: #C4B5FD;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cross-circle svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Bottom CTA */
+    .comparison-bottom-cta {
+      margin-top: 42px;
+    }
+
+    /* ---------------- Responsive Media Queries ---------------- */
+    @media (max-width: 900px) {
+      .site-header {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .stats-pill {
+        padding: 8px 16px;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .play-btn-circle {
+        width: 60px;
+        height: 60px;
+      }
+
+      .play-arrow {
+        width: 22px;
+        height: 22px;
+      }
+
+      .yt-svg-badge {
+        width: 44px;
+        height: 30px;
+      }
+
+      .passive-income-section,
+      .comparison-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .passive-heading {
+        font-size: 2.4rem;
+      }
+
+      .passive-income-capsule {
+        padding: 6px 24px;
+      }
+
+      .comp-table-header,
+      .comp-row {
+        padding: 16px 20px;
+      }
+
+      .comp-feature {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .header-actions {
+        gap: 8px;
+      }
+
+      .btn-ban {
+        padding: 6px 14px;
+        font-size: 0.78rem;
+      }
+
+      .btn-dashboard {
+        padding: 7px 14px;
+        font-size: 0.8rem;
+      }
+
+      .stat-divider {
+        display: none;
+      }
+
+      .stats-pill {
+        border-radius: 16px;
+        gap: 12px;
+      }
+
+      .passive-heading {
+        font-size: 1.95rem;
+      }
+
+      .passive-income-capsule {
+        padding: 6px 18px;
+        font-size: 1.5rem;
+        min-height: 52px;
+      }
+
+      .passive-description {
+        font-size: 1rem;
+      }
+
+      .passive-cta-row {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn-primary-purple,
+      .btn-secondary-outline {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .metrics-grid {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .metric-sep {
+        width: 60px;
+        height: 1px;
+      }
+
+      .comp-table-header,
+      .comp-row {
+        padding: 14px 14px;
+      }
+
+      .comp-feature {
+        font-size: 0.85rem;
+      }
+
+      .comp-th.th-us,
+      .comp-th.th-others,
+      .comp-cell.cell-us,
+      .comp-cell.cell-others {
+        width: 65px;
+      }
+
+      .check-circle,
+      .cross-circle {
+        width: 24px;
+        height: 24px;
+      }
+
+      .check-circle svg,
+      .cross-circle svg {
+        width: 13px;
+        height: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+  <!-- Ambient Gradient Background Elements -->
+  <div class="bg-glow bg-glow-left"></div>
+  <div class="bg-glow bg-glow-right"></div>
+  <div class="bg-glow bg-glow-bottom"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="#" class="brand-logo" aria-label="AIT Institute Home">
+        <div class="logo-mark">
+          <svg class="logo-ait-svg" viewBox="0 0 76 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.5 8C8.35786 8 5 11.3579 5 15.5C5 19.6421 8.35786 23 12.5 23C14.85 23 16.92 21.91 18.25 20.2V22.5H23V8.5H18.25V10.8C16.92 9.09 14.85 8 12.5 8ZM14 18.5C12.3431 18.5 11 17.1569 11 15.5C11 13.8431 12.3431 12.5 14 12.5C15.6569 12.5 17 13.8431 17 15.5C17 17.1569 15.6569 18.5 14 18.5Z" fill="url(#logo_grad)" />
+            <circle cx="30" cy="9.5" r="3" fill="url(#logo_grad)" />
+            <rect x="27.5" y="14" width="5" height="8.5" rx="2.5" fill="url(#logo_grad)" />
+            <path d="M41 9V14H45.5V17.5H41V21C41 21.8 41.5 22.5 42.5 22.5H45.5V26H41.5C38.5 26 36.5 24.2 36.5 21V17.5H33V14H36.5V10L41 9Z" fill="url(#logo_grad)" />
+            <defs>
+              <linearGradient id="logo_grad" x1="5" y1="8" x2="45" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#7C3AED" />
+                <stop offset="1" stop-color="#6366F1" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">INSTITUTE</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active">
+          <span>Home</span>
+          <span class="active-indicator"></span>
+        </a>
+        <a href="#course" class="nav-link">Course</a>
+        <a href="#curriculum" class="nav-link">Curriculum</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <!-- Right Action Buttons -->
+      <div class="header-actions">
+        <button type="button" class="btn-ban" aria-label="Language selection BAN">
+          BAN
+        </button>
+        <a href="#dashboard" class="btn-dashboard">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+          <span>Student Dashboard</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-section" id="home">
+    <div class="hero-container">
+      
+      <!-- Top Pill Badge -->
+      <div class="program-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">AI AUTOMATION PROGRAM 2026</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="hero-title">
+        <span class="title-line-1">Master AI Automation</span>
+        <span class="title-line-2">
+          Before <span class="gradient-world">The World</span>
+        </span>
+        <span class="title-line-3 gradient-behind">Leaves You Behind</span>
+      </h1>
+
+      <!-- Stats Capsule Bar -->
+      <div class="stats-pill">
+        <div class="stat-item">
+          <span class="stat-num">3,800+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">70+</span>
+          <span class="stat-label">Hours</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">12</span>
+          <span class="stat-label">Months Live Support</span>
+        </div>
+      </div>
+
+      <!-- Video Player Wrapper (991px by 557px format) -->
+      <div class="video-container-outer">
+        <div class="video-card" id="videoCard">
+          
+          <!-- YouTube Iframe Component (exact provided attributes) -->
+          <iframe 
+            id="mainYouTubeIframe"
+            class="yt-iframe"
+            width="991" 
+            height="557" 
+            src="https://www.youtube.com/embed/nz-Z9ubuS3c?autoplay=0&rel=0&enablejsapi=1" 
+            title="Class 01: YouTube Automation Fundamentals A-Z | Professional Faceless YouTube Channel Setup 2026" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+
+          <!-- Custom Thumbnail & Play Overlay (Exact Replica of UI Screenshot) -->
+          <div class="video-overlay" id="videoOverlay" onclick="playYouTubeVideo()">
+            <img 
+              src="https://img.youtube.com/vi/nz-Z9ubuS3c/maxresdefault.jpg" 
+              onerror="this.src='https://img.youtube.com/vi/nz-Z9ubuS3c/hqdefault.jpg'"
+              alt="Class 01: YouTube Automation Fundamentals A-Z" 
+              class="overlay-thumbnail"
+            />
+            
+            <!-- Red YouTube Logo Icon at top center -->
+            <div class="yt-top-icon">
+              <svg viewBox="0 0 68 48" class="yt-svg-badge">
+                <path class="yt-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#FF0000"></path>
+                <path d="M 45,24 27,14 27,34" fill="#FFFFFF"></path>
+              </svg>
+            </div>
+
+            <!-- Central Circular Play Button -->
+            <div class="play-btn-circle" title="Click to play video">
+              <div class="play-btn-pulse"></div>
+              <svg class="play-arrow" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l11.43-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subtitle below the video -->
+        <p class="video-caption">Watch the video carefully...</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Section 1: AI + Automation + [Continuous Animated Capsule] Banner -->
+  <section class="passive-income-section" id="course">
+    <div class="section-container">
+      
+      <!-- Top Badge -->
+      <div class="accepting-badge">
+        <span class="badge-dot-purple"></span>
+        <span class="accepting-text">NOW ACCEPTING NEW STUDENTS</span>
+      </div>
+
+      <!-- Heading with Continuous Animated Text -->
+      <h2 class="passive-heading">
+        <span class="heading-part">AI + Automation +</span>
+        <span class="passive-income-capsule" id="animatedCapsule">
+          <span class="rotating-text-item" id="rotatingText">Passive Income</span>
+        </span>
+      </h2>
+
+      <!-- Subtitle Description -->
+      <p class="passive-description">
+        Everything in one place. Our AI automation program is built with the<br class="desktop-br"/>
+        <strong>best support system</strong> in the country.
+      </p>
+
+      <!-- CTA Buttons Row -->
+      <div class="passive-cta-row">
+        <a href="#enroll" class="btn-primary-purple">
+          <span>Enroll now</span>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <a href="#learn" class="btn-secondary-outline">
+          <span class="play-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
+            </svg>
+          </span>
+          <span>Learn about the course</span>
+        </a>
+      </div>
+
+      <!-- Divider -->
+      <div class="metrics-divider"></div>
+
+      <!-- 3 Metrics Columns -->
+      <div class="metrics-grid">
+        <div class="metric-col">
+          <div class="metric-val">24/7</div>
+          <div class="metric-lbl">EXPERT SUPPORT</div>
+        </div>
+
+        <div class="metric-sep"></div>
+
+        <div class="metric-col">
+          <div class="metric-val">3,800+</div>
+          <div class="metric-lbl">ACTIVE ALUMNI</div>
+        </div>
+
+        <div class="metric-sep"></div>
+
+        <div class="metric-col">
+          <div class="metric-val">4.9/5</div>
+          <div class="metric-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Us VS Others Comparison Section -->
+  <section class="comparison-section" id="curriculum">
+    <div class="comparison-container">
+      
+      <!-- Section Headers -->
+      <div class="section-tag">THE DIFFERENCE</div>
+      <h2 class="comparison-title">Us VS Others</h2>
+      <p class="comparison-subtitle">Why is our program the best?</p>
+      <p class="comparison-description">Don't just learn automation learn real-world, in-demand skills.</p>
+
+      <!-- Comparison Card Table -->
+      <div class="comparison-card">
+        <!-- Table Header -->
+        <div class="comp-table-header">
+          <div class="comp-th th-features">FEATURES</div>
+          <div class="comp-th th-us">US</div>
+          <div class="comp-th th-others">OTHERS</div>
+        </div>
+
+        <!-- Table Rows -->
+        <div class="comp-table-body">
+          
+          <!-- Row 1 -->
+          <div class="comp-row">
+            <div class="comp-feature">Free community access for 3 full years</div>
+            <div class="comp-cell cell-us">
+              <div class="check-circle" aria-label="Included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="comp-cell cell-others">
+              <div class="cross-circle" aria-label="Not included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="comp-row">
+            <div class="comp-feature">The best trainer support system in Bangladesh</div>
+            <div class="comp-cell cell-us">
+              <div class="check-circle" aria-label="Included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="comp-cell cell-others">
+              <div class="cross-circle" aria-label="Not included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="comp-row">
+            <div class="comp-feature">Proven strategies for faster results</div>
+            <div class="comp-cell cell-us">
+              <div class="check-circle" aria-label="Included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="comp-cell cell-others">
+              <div class="cross-circle" aria-label="Not included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="comp-row">
+            <div class="comp-feature">Live 1:1 support system</div>
+            <div class="comp-cell cell-us">
+              <div class="check-circle" aria-label="Included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="comp-cell cell-others">
+              <div class="cross-circle" aria-label="Not included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="comp-row">
+            <div class="comp-feature">Opportunity to be hired for in-house projects</div>
+            <div class="comp-cell cell-us">
+              <div class="check-circle" aria-label="Included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="comp-cell cell-others">
+              <div class="cross-circle" aria-label="Not included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="comp-row">
+            <div class="comp-feature">Regular updates on latest trending topics</div>
+            <div class="comp-cell cell-us">
+              <div class="check-circle" aria-label="Included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="comp-cell cell-others">
+              <div class="cross-circle" aria-label="Not included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 7 -->
+          <div class="comp-row">
+            <div class="comp-feature">Professional Freelancer Certificate</div>
+            <div class="comp-cell cell-us">
+              <div class="check-circle" aria-label="Included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="comp-cell cell-others">
+              <div class="cross-circle" aria-label="Not included">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Enroll Now CTA -->
+      <div class="comparison-bottom-cta">
+        <a href="#enroll" class="btn-primary-purple">
+          <span>Enroll now</span>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Embedded Interactive JavaScript -->
+  <script>
+    /**
+     * YouTube Video Play Activation
+     */
+    function playYouTubeVideo() {
+      const overlay = document.getElementById('videoOverlay');
+      const iframe = document.getElementById('mainYouTubeIframe');
+
+      if (overlay && iframe) {
+        overlay.classList.add('is-playing');
+
+        let currentSrc = iframe.getAttribute('src');
+        if (!currentSrc.includes('autoplay=1')) {
+          if (currentSrc.includes('autoplay=0')) {
+            currentSrc = currentSrc.replace('autoplay=0', 'autoplay=1');
+          } else {
+            currentSrc += (currentSrc.includes('?') ? '&' : '?') + 'autoplay=1';
+          }
+          iframe.setAttribute('src', currentSrc);
+        }
+      }
+    }
+
+    /**
+     * All-Time Rotating Text Animation inside the Purple Capsule:
+     * "Passive Income" > "Dollar Earning" > "YouTube Automation" > "Content Creation"
+     */
+    const rotatingWords = [
+      "Passive Income",
+      "Dollar Earning",
+      "YouTube Automation",
+      "Content Creation"
+    ];
+
+    let currentWordIndex = 0;
+
+    function initWordRotator() {
+      const textElem = document.getElementById('rotatingText');
+      if (!textElem) return;
+
+      setInterval(() => {
+        // Step 1: Slide up and fade out current word
+        textElem.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.32s ease';
+        textElem.classList.add('anim-out');
+
+        setTimeout(() => {
+          // Step 2: Disable transition to instantly place next word at bottom entrance
+          textElem.style.transition = 'none';
+          currentWordIndex = (currentWordIndex + 1) % rotatingWords.length;
+          textElem.textContent = rotatingWords[currentWordIndex];
+
+          textElem.classList.remove('anim-out');
+          textElem.classList.add('anim-in-prep');
+
+          // Step 3: Trigger layout reflow
+          void textElem.offsetWidth;
+
+          // Step 4: Re-enable spring transition and animate up into view
+          textElem.style.transition = 'transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease';
+          textElem.classList.remove('anim-in-prep');
+        }, 360);
+      }, 2600);
+    }
+
+    // Initialize once DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      // Start the text rotator
+      initWordRotator();
+
+      // Navigation Links Active State
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (link.getAttribute('href').startsWith('#')) {
+            navLinks.forEach(l => {
+              l.classList.remove('active');
+              const indicator = l.querySelector('.active-indicator');
+              if (indicator) indicator.remove();
+            });
+
+            link.classList.add('active');
+            const indicator = document.createElement('span');
+            indicator.className = 'active-indicator';
+            link.appendChild(indicator);
+          }
+        });
+      });
+
+      // Video Overlay Keyboard Accessibility
+      const videoOverlay = document.getElementById('videoOverlay');
+      if (videoOverlay) {
+        videoOverlay.setAttribute('tabindex', '0');
+        videoOverlay.setAttribute('role', 'button');
+        videoOverlay.setAttribute('aria-label', 'Play video');
+        videoOverlay.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            playYouTubeVideo();
+          }
+        });
+      }
+    });
+  </script>
+  </div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
