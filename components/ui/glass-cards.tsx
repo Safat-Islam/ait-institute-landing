@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cardData, CurriculumCard } from '../../lib/utils';
@@ -8,18 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const StackedCards: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const stageRef = useRef<HTMLDivElement>(null);
-    const activeIndexRef = useRef<number>(0);
-    const [currentModuleIndex, setCurrentModuleIndex] = useState<number>(0);
-    const [selectedPhase, setSelectedPhase] = useState<'all' | 'p1' | 'p2' | 'p3' | 'p4'>('all');
-
-    // Filter modules by phase for convenient exploration
-    const activeCards = useMemo(() => {
-        if (selectedPhase === 'p1') return cardData.filter(c => c.id >= 1 && c.id <= 5);
-        if (selectedPhase === 'p2') return cardData.filter(c => c.id >= 6 && c.id <= 11);
-        if (selectedPhase === 'p3') return cardData.filter(c => c.id >= 12 && c.id <= 16);
-        if (selectedPhase === 'p4') return cardData.filter(c => c.id >= 17 && c.id <= 20);
-        return cardData;
-    }, [selectedPhase]);
+    const activeCards = cardData;
 
     useEffect(() => {
         const stage = stageRef.current;
@@ -58,17 +47,6 @@ export const StackedCards: React.FC = () => {
                 scrub: 1.2, // Silky smooth inertia damping
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
-                onUpdate: (self) => {
-                    const step = Math.min(
-                        cards.length - 1,
-                        Math.floor(self.progress * cards.length)
-                    );
-                    // Prevent per-frame re-renders: only update state when card actually changes
-                    if (step !== activeIndexRef.current) {
-                        activeIndexRef.current = step;
-                        setCurrentModuleIndex(step);
-                    }
-                }
             }
         });
 
@@ -140,69 +118,9 @@ export const StackedCards: React.FC = () => {
                 <h2 className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4 leading-tight">
                     The Full Curriculum
                 </h2>
-                <p className="text-base sm:text-lg text-zinc-400 font-light max-w-2xl mx-auto mb-8">
+                <p className="text-base sm:text-lg text-zinc-400 font-light max-w-2xl mx-auto mb-4">
                     Scroll down to watch each card glide from bottom to top over the previous card.
                 </p>
-
-                {/* Interactive Phase Filter Buttons */}
-                <div className="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md flex-wrap justify-center mb-4">
-                    <button
-                        onClick={() => setSelectedPhase('all')}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                            selectedPhase === 'all' 
-                                ? 'bg-purple-600 text-white shadow-md shadow-purple-500/30' 
-                                : 'text-zinc-400 hover:text-white'
-                        }`}
-                    >
-                        All Modules ({cardData.length})
-                    </button>
-                    <button
-                        onClick={() => setSelectedPhase('p1')}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                            selectedPhase === 'p1' 
-                                ? 'bg-purple-600 text-white shadow-md shadow-purple-500/30' 
-                                : 'text-zinc-400 hover:text-white'
-                        }`}
-                    >
-                        Phase 1 (1–5)
-                    </button>
-                    <button
-                        onClick={() => setSelectedPhase('p2')}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                            selectedPhase === 'p2' 
-                                ? 'bg-purple-600 text-white shadow-md shadow-purple-500/30' 
-                                : 'text-zinc-400 hover:text-white'
-                        }`}
-                    >
-                        Phase 2 (6–11)
-                    </button>
-                    <button
-                        onClick={() => setSelectedPhase('p3')}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                            selectedPhase === 'p3' 
-                                ? 'bg-purple-600 text-white shadow-md shadow-purple-500/30' 
-                                : 'text-zinc-400 hover:text-white'
-                        }`}
-                    >
-                        Phase 3 (12–16)
-                    </button>
-                    <button
-                        onClick={() => setSelectedPhase('p4')}
-                        className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                            selectedPhase === 'p4' 
-                                ? 'bg-purple-600 text-white shadow-md shadow-purple-500/30' 
-                                : 'text-zinc-400 hover:text-white'
-                        }`}
-                    >
-                        Phase 4 (17–20)
-                    </button>
-                </div>
-
-                <div className="flex items-center justify-center gap-2 text-xs font-mono text-purple-400/80 uppercase tracking-widest mt-2">
-                    <span>Active: Module {String(activeCards[currentModuleIndex]?.id || 1).padStart(2, '0')} / {activeCards.length}</span>
-                    <span>&bull;</span>
-                    <span>Scroll to Stack &darr;</span>
-                </div>
             </section>
 
             {/* Pinned Stacking Viewport Stage */}
