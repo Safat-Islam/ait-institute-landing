@@ -687,215 +687,139 @@ export const FooterReviewSection: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          FINAL CALL CTA SECTION (from aitinstitutebd.com)
+          CLEAN MINIMALIST FOOTER (matching media_1793128031915_1d61c96f.png)
           ========================================================================= */}
-      <section className="relative py-20 px-4 sm:px-6 bg-gradient-to-b from-white via-purple-50/40 to-purple-50/20 text-center border-t border-purple-100">
-        <div className="max-w-4xl mx-auto flex flex-col items-center">
+      <footer className="w-full bg-white text-slate-700 border-t border-slate-100 pt-16 pb-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* Badge: Final Call */}
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-[11px] font-semibold tracking-[0.18em] uppercase shadow-sm">
-            Final Call
-          </span>
+          {/* 4-Column Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-16">
+            
+            {/* Column 1: App Icon + Brand Details */}
+            <div className="flex flex-col items-start">
+              {/* App Icon matching screenshot */}
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-600 to-indigo-700 shadow-md shadow-purple-500/25 flex items-center justify-center text-white select-none">
+                <span className="font-bold text-xl tracking-tighter lowercase leading-none">ait</span>
+              </div>
 
-          {/* Heading */}
-          <h2 className="mt-6 text-[30px] sm:text-4xl md:text-[46px] font-extrabold leading-[1.15] tracking-tight text-slate-900 text-balance">
-            The future belongs to those who master AI.
-            <span className="block mt-2 font-extrabold text-[#7C3AED]">
-              Secure your place among them.
-            </span>
-          </h2>
+              {/* Title */}
+              <h3 className="font-extrabold text-sm sm:text-base tracking-tight text-slate-900 mt-4 uppercase">
+                AIT INSTITUTE BD
+              </h3>
 
-          {/* Subtitle */}
-          <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-[560px] text-balance">
-            Don&apos;t get left behind in 2026. Join{" "}
-            <span className="tabular-nums text-purple-600 font-bold">1,200+</span>{" "}
-            students already building with AI.
-          </p>
+              {/* Tagline */}
+              <p className="text-[10px] font-bold tracking-[0.25em] text-slate-400 uppercase mt-1">
+                LEARN · BUILD · GROW
+              </p>
 
-          {/* CTA Button */}
-          <div className="mt-9">
-            <a
-              href="#pricing"
-              className="inline-flex items-center justify-center h-13 px-8 rounded-full text-white font-bold bg-[#7C3AED] hover:bg-[#6D28D9] shadow-lg shadow-purple-600/30 hover:-translate-y-0.5 transition-all text-sm group"
-              style={{ height: "52px", backgroundColor: "#7C3AED" }}
-            >
-              <span className="relative z-10 inline-flex items-center gap-2">
-                Enroll now — ৳7,200
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </a>
-          </div>
-
-          {/* Guarantee */}
-          <p className="mt-4 text-sm text-slate-500">
-            72-hour money-back guarantee.
-          </p>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          OFFICIAL AIT INSTITUTE FOOTER (bg-[#1a0b2e] from aitinstitutebd.com)
-          ========================================================================= */}
-      <footer className="bg-[#1a0b2e] seam-grad-top text-purple-100 relative overflow-hidden">
-        
-        {/* Subtle purple ambient glow behind footer */}
-        <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
-
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
-          
-          {/* Column 1: Brand Info */}
-          <div className="md:col-span-1">
-            <div className="text-white font-extrabold text-2xl tracking-tight uppercase flex items-center gap-2">
-              <svg className="w-8 h-6" viewBox="0 0 76 34" fill="none">
-                <path
-                  d="M12.5 8C8.35786 8 5 11.3579 5 15.5C5 19.6421 8.35786 23 12.5 23C14.85 23 16.92 21.91 18.25 20.2V22.5H23V8.5H18.25V10.8C16.92 9.09 14.85 8 12.5 8ZM14 18.5C12.3431 18.5 11 17.1569 11 15.5C11 13.8431 12.3431 12.5 14 12.5C15.6569 12.5 17 13.8431 17 15.5C17 17.1569 15.6569 18.5 14 18.5Z"
-                  fill="#A855F7"
-                />
-                <circle cx="30" cy="9.5" r="3" fill="#A855F7" />
-                <rect x="27.5" y="14" width="5" height="8.5" rx="2.5" fill="#A855F7" />
-                <path
-                  d="M41 9V14H45.5V17.5H41V21C41 21.8 41.5 22.5 42.5 22.5H45.5V26H41.5C38.5 26 36.5 24.2 36.5 21V17.5H33V14H36.5V10L41 9Z"
-                  fill="#A855F7"
-                />
-              </svg>
-              <span>AIT INSTITUTE</span>
+              {/* Description */}
+              <p className="text-xs text-slate-500 leading-relaxed max-w-[240px] mt-3.5 font-normal">
+                বাংলাদেশের শীর্ষস্থানীয় AI ও YouTube Automation একাডেমি — পাবনা, বাংলাদেশ থেকে সম্পূর্ণ বাংলায় প্রশিক্ষণ।
+              </p>
             </div>
 
-            <p className="mt-4 text-sm text-purple-100/80 leading-relaxed">
-              One of the biggest and fastest-growing AI learning platforms in Bangladesh. We empower students to master the future with AI and automation.
-            </p>
-          </div>
-
-          {/* Column 2: Links */}
-          <div>
-            <h4 className="text-white text-sm font-bold uppercase tracking-widest mb-4">
-              Links
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="/">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#curriculum">
-                  Course
-                </a>
-              </li>
-              <li>
-                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#about">
-                  About
-                </a>
-              </li>
-              <li>
-                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#ayaan">
-                  Ayaan Choudhury
-                </a>
-              </li>
-              <li>
-                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#pricing">
-                  Enroll
-                </a>
-              </li>
-              <li>
-                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#login">
-                  Login
-                </a>
-              </li>
-              <li>
-                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#reviews">
-                  Reviews
-                </a>
-              </li>
-              <li>
-                <a className="text-purple-100/80 hover:text-white transition text-left cursor-pointer" href="#reviews">
-                  Give Review
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Company */}
-          <div>
+            {/* Column 2: দ্রুত লিংক */}
             <div>
-              <h4 className="text-white text-sm font-bold uppercase tracking-widest mb-4">
-                Company
+              <h4 className="text-sm font-bold text-slate-900 tracking-tight mb-4">
+                দ্রুত লিংক
               </h4>
-              <ul className="space-y-2.5 text-sm">
+              <ul className="space-y-3 text-xs text-slate-500 font-medium">
                 <li>
-                  <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#">
-                    Terms
+                  <a href="#curriculum" className="hover:text-purple-600 transition-colors">
+                    কারিকুলাম
                   </a>
                 </li>
                 <li>
-                  <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#">
-                    Privacy
+                  <a href="#pricing" className="hover:text-purple-600 transition-colors">
+                    প্যাকেজ ও মূল্য
                   </a>
                 </li>
                 <li>
-                  <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#">
-                    Refund
+                  <a href="#reviews" className="hover:text-purple-600 transition-colors">
+                    শিক্ষার্থীদের ফলাফল
+                  </a>
+                </li>
+                <li>
+                  <a href="#faq" className="hover:text-purple-600 transition-colors">
+                    সাধারণ জিজ্ঞাসা
                   </a>
                 </li>
               </ul>
             </div>
-            
-            <a 
-              href="mailto:support@aitinstitutebd.com" 
-              className="mt-5 inline-flex items-center gap-2 text-purple-100/80 hover:text-white transition text-sm group"
-            >
-              <span>Support</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </div>
 
-          {/* Column 4: Follow us */}
-          <div>
-            <h4 className="text-white text-sm font-bold uppercase tracking-widest mb-4">
-              Follow us
-            </h4>
-            <div className="flex gap-3">
-              <a
-                href="https://www.facebook.com/ayaanchoudhury.mentor"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur grid place-items-center text-white transition hover:scale-110 shadow-sm"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href="https://t.me/aitinstitute"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Telegram"
-                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur grid place-items-center text-white transition hover:scale-110 shadow-sm"
-              >
-                <Send className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.youtube.com/@AyaanChoudhuryAutomation"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur grid place-items-center text-white transition hover:scale-110 shadow-sm"
-              >
-                <Youtube className="h-4 w-4" />
-              </a>
+            {/* Column 3: যোগাযোগ */}
+            <div>
+              <h4 className="text-sm font-bold text-slate-900 tracking-tight mb-4">
+                যোগাযোগ
+              </h4>
+              <ul className="space-y-3 text-xs text-slate-500 font-medium">
+                <li>
+                  <a 
+                    href="https://wa.me/8801863885400" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-purple-600 transition-colors"
+                  >
+                    WhatsApp: ০১৮৬৩-৮৮৫৪০০
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://aitinstitutebd.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-purple-600 transition-colors"
+                  >
+                    ওয়েবসাইট: aitinstitutebd.com
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://www.facebook.com/ayaanchoudhury.mentor" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-purple-600 transition-colors"
+                  >
+                    ফেসবুক পেজ: AIT INSTITUTE BD
+                  </a>
+                </li>
+              </ul>
             </div>
+
+            {/* Column 4: প্রোগ্রাম */}
+            <div>
+              <h4 className="text-sm font-bold text-slate-900 tracking-tight mb-4">
+                প্রোগ্রাম
+              </h4>
+              <ul className="space-y-3 text-xs text-slate-500 font-medium">
+                <li>
+                  <a href="#pricing" className="hover:text-purple-600 transition-colors">
+                    Free Package — Starter
+                  </a>
+                </li>
+                <li>
+                  <a href="#pricing" className="hover:text-purple-600 transition-colors">
+                    Advanced Package — Mastery
+                  </a>
+                </li>
+                <li>
+                  <a href="#pricing" className="hover:text-purple-600 transition-colors">
+                    Elite Package — Elite Mastery
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          {/* Bottom Centered Copyright Line matching screenshot */}
+          <div className="pt-8 border-t border-slate-100 text-center">
+            <p className="text-xs text-slate-400">
+              © ২০২৬ AIT Institute BD · AI Automation Program 2026 · পাবনা, বাংলাদেশ
+            </p>
           </div>
 
         </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 relative z-10">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-5 text-xs text-purple-100/70 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <span>© 2026 AIT Institute. All rights reserved.</span>
-            <span className="text-[11px] text-purple-200/50">Empowering future creators with AI &amp; Automation</span>
-          </div>
-        </div>
-
       </footer>
 
     </div>
