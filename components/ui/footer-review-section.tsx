@@ -17,7 +17,8 @@ import {
   TrendingUp,
   Sparkles,
   DollarSign,
-  ChevronDown
+  ChevronDown,
+  ArrowRight
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -682,230 +683,219 @@ export const FooterReviewSection: React.FC = () => {
             })}
           </div>
 
-          {/* Bottom Enroll Call to Action */}
-          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="text-center sm:text-left">
-              <h3 className="text-xl sm:text-2xl font-black mb-2 text-white">
-                আপনিও শুরু করুন আপনার অটোমেশন জার্নি
-              </h3>
-              <p className="text-xs sm:text-sm text-purple-200 max-w-xl">
-                AIT Institute-এর সম্পূর্ণ গাইডলাইন এবং ১:১ ট্রেইনার সহায়তায় তৈরি করুন আপনার প্যাসিভ আয়ের ইউটিউব চ্যানেল।
-              </p>
-            </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          FINAL CALL CTA SECTION (from aitinstitutebd.com)
+          ========================================================================= */}
+      <section className="relative py-20 px-4 sm:px-6 bg-gradient-to-b from-white via-purple-50/40 to-purple-50/20 text-center border-t border-purple-100">
+        <div className="max-w-4xl mx-auto flex flex-col items-center">
+          
+          {/* Badge: Final Call */}
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-[11px] font-semibold tracking-[0.18em] uppercase shadow-sm">
+            Final Call
+          </span>
+
+          {/* Heading */}
+          <h2 className="mt-6 text-[30px] sm:text-4xl md:text-[46px] font-extrabold leading-[1.15] tracking-tight text-slate-900 text-balance">
+            The future belongs to those who master AI.
+            <span className="block mt-2 font-extrabold text-[#7C3AED]">
+              Secure your place among them.
+            </span>
+          </h2>
+
+          {/* Subtitle */}
+          <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-[560px] text-balance">
+            Don&apos;t get left behind in 2026. Join{" "}
+            <span className="tabular-nums text-purple-600 font-bold">1,200+</span>{" "}
+            students already building with AI.
+          </p>
+
+          {/* CTA Button */}
+          <div className="mt-9">
             <a
               href="#pricing"
-              className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-purple-500 hover:bg-purple-400 text-white font-bold text-sm shadow-lg shadow-purple-500/30 transition-all duration-200"
+              className="inline-flex items-center justify-center h-13 px-8 rounded-full text-white font-bold bg-[#7C3AED] hover:bg-[#6D28D9] shadow-lg shadow-purple-600/30 hover:-translate-y-0.5 transition-all text-sm group"
+              style={{ height: "52px", backgroundColor: "#7C3AED" }}
             >
-              <span>পরবর্তী ব্যাচে সিট বুক করুন</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <span className="relative z-10 inline-flex items-center gap-2">
+                Enroll now — ৳7,200
+                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+              </span>
             </a>
           </div>
+
+          {/* Guarantee */}
+          <p className="mt-4 text-sm text-slate-500">
+            72-hour money-back guarantee.
+          </p>
 
         </div>
       </section>
 
       {/* =========================================================================
-          PROFESSIONAL DARK FOOTER
-          Preserved clean footer with all company details, links, and branding
+          OFFICIAL AIT INSTITUTE FOOTER (bg-[#1a0b2e] from aitinstitutebd.com)
           ========================================================================= */}
-      <footer className="relative border-t border-slate-800 bg-[#0B0D17] text-white pt-16 pb-12">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <footer className="bg-[#1a0b2e] seam-grad-top text-purple-100 relative overflow-hidden">
+        
+        {/* Subtle purple ambient glow behind footer */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
           
-          {/* Main Footer Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
-            
-            {/* Column 1: Brand Info */}
-            <div className="lg:col-span-2">
-              <a href="#" className="flex items-center gap-2.5 mb-4 group">
-                <svg className="w-10 h-7" viewBox="0 0 76 34" fill="none">
-                  <path
-                    d="M12.5 8C8.35786 8 5 11.3579 5 15.5C5 19.6421 8.35786 23 12.5 23C14.85 23 16.92 21.91 18.25 20.2V22.5H23V8.5H18.25V10.8C16.92 9.09 14.85 8 12.5 8ZM14 18.5C12.3431 18.5 11 17.1569 11 15.5C11 13.8431 12.3431 12.5 14 12.5C15.6569 12.5 17 13.8431 17 15.5C17 17.1569 15.6569 18.5 14 18.5Z"
-                    fill="url(#footer_logo_grad)"
-                  />
-                  <circle cx="30" cy="9.5" r="3" fill="url(#footer_logo_grad)" />
-                  <rect x="27.5" y="14" width="5" height="8.5" rx="2.5" fill="url(#footer_logo_grad)" />
-                  <path
-                    d="M41 9V14H45.5V17.5H41V21C41 21.8 41.5 22.5 42.5 22.5H45.5V26H41.5C38.5 26 36.5 24.2 36.5 21V17.5H33V14H36.5V10L41 9Z"
-                    fill="url(#footer_logo_grad)"
-                  />
-                  <defs>
-                    <linearGradient id="footer_logo_grad" x1="5" y1="8" x2="45" y2="26" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#A855F7" />
-                      <stop offset="1" stopColor="#6366F1" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <span className="font-extrabold text-lg tracking-wider text-white group-hover:text-purple-300 transition-colors">
-                  AIT INSTITUTE
-                </span>
-              </a>
-
-              <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
-                Bangladesh’s premier learning academy for AI-powered YouTube automation, digital media systems, and passive dollar income streams.
-              </p>
-
-              {/* Social icons */}
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-purple-600 hover:border-purple-600 transition-all duration-200"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-rose-600 hover:border-rose-600 transition-all duration-200"
-                  aria-label="YouTube"
-                >
-                  <Youtube className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://telegram.org"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-sky-500 hover:border-sky-500 transition-all duration-200"
-                  aria-label="Telegram"
-                >
-                  <Send className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://whatsapp.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-emerald-600 hover:border-emerald-600 transition-all duration-200"
-                  aria-label="WhatsApp"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                </a>
-              </div>
+          {/* Column 1: Brand Info */}
+          <div className="md:col-span-1">
+            <div className="text-white font-extrabold text-2xl tracking-tight uppercase flex items-center gap-2">
+              <svg className="w-8 h-6" viewBox="0 0 76 34" fill="none">
+                <path
+                  d="M12.5 8C8.35786 8 5 11.3579 5 15.5C5 19.6421 8.35786 23 12.5 23C14.85 23 16.92 21.91 18.25 20.2V22.5H23V8.5H18.25V10.8C16.92 9.09 14.85 8 12.5 8ZM14 18.5C12.3431 18.5 11 17.1569 11 15.5C11 13.8431 12.3431 12.5 14 12.5C15.6569 12.5 17 13.8431 17 15.5C17 17.1569 15.6569 18.5 14 18.5Z"
+                  fill="#A855F7"
+                />
+                <circle cx="30" cy="9.5" r="3" fill="#A855F7" />
+                <rect x="27.5" y="14" width="5" height="8.5" rx="2.5" fill="#A855F7" />
+                <path
+                  d="M41 9V14H45.5V17.5H41V21C41 21.8 41.5 22.5 42.5 22.5H45.5V26H41.5C38.5 26 36.5 24.2 36.5 21V17.5H33V14H36.5V10L41 9Z"
+                  fill="#A855F7"
+                />
+              </svg>
+              <span>AIT INSTITUTE</span>
             </div>
 
-            {/* Column 2: Navigation Links */}
-            <div>
-              <h4 className="text-xs font-bold tracking-wider uppercase text-slate-200 mb-4">
-                Explore
-              </h4>
-              <ul className="space-y-2.5 text-sm text-slate-400">
-                <li>
-                  <a href="#curriculum" className="hover:text-purple-400 transition-colors">
-                    20 Core Modules
-                  </a>
-                </li>
-                <li>
-                  <a href="#software" className="hover:text-purple-400 transition-colors">
-                    Secret Software
-                  </a>
-                </li>
-                <li>
-                  <a href="#pricing" className="hover:text-purple-400 transition-colors">
-                    Tuition &amp; Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#us-vs-others" className="hover:text-purple-400 transition-colors">
-                    Us VS Others
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-purple-400 transition-colors">
-                    Free Masterclass
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 3: Learning Programs */}
-            <div>
-              <h4 className="text-xs font-bold tracking-wider uppercase text-slate-200 mb-4">
-                Programs
-              </h4>
-              <ul className="space-y-2.5 text-sm text-slate-400">
-                <li>
-                  <span className="hover:text-purple-400 transition-colors cursor-pointer">
-                    Faceless YouTube System
-                  </span>
-                </li>
-                <li>
-                  <span className="hover:text-purple-400 transition-colors cursor-pointer">
-                    Midjourney &amp; Flux AI
-                  </span>
-                </li>
-                <li>
-                  <span className="hover:text-purple-400 transition-colors cursor-pointer">
-                    ElevenLabs Voice Mastery
-                  </span>
-                </li>
-                <li>
-                  <span className="hover:text-purple-400 transition-colors cursor-pointer">
-                    High RPM US Niches
-                  </span>
-                </li>
-                <li>
-                  <span className="hover:text-purple-400 transition-colors cursor-pointer">
-                    1:1 VIP Mentorship
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 4: Contact & Support */}
-            <div>
-              <h4 className="text-xs font-bold tracking-wider uppercase text-slate-200 mb-4">
-                Direct Contact
-              </h4>
-              <ul className="space-y-3 text-sm text-slate-400">
-                <li className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
-                  <span>Dhaka, Bangladesh</span>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-purple-400 flex-shrink-0" />
-                  <a href="mailto:support@aitinstitutebd.com" className="hover:text-white transition-colors">
-                    support@aitinstitutebd.com
-                  </a>
-                </li>
-                <li className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-purple-400 flex-shrink-0" />
-                  <a href="tel:+8801800000000" className="hover:text-white transition-colors">
-                    +880 1800-000000
-                  </a>
-                </li>
-                <li className="pt-2">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    24/7 Trainer Support Live
-                  </div>
-                </li>
-              </ul>
-            </div>
-
+            <p className="mt-4 text-sm text-purple-100/80 leading-relaxed">
+              One of the biggest and fastest-growing AI learning platforms in Bangladesh. We empower students to master the future with AI and automation.
+            </p>
           </div>
 
-          {/* Bottom Divider & Legal Bar */}
-          <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-            <p>
-              © {new Date().getFullYear()} AIT Institute (aitinstitutebd.com). All rights reserved.
-            </p>
+          {/* Column 2: Links */}
+          <div>
+            <h4 className="text-white text-sm font-bold uppercase tracking-widest mb-4">
+              Links
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="/">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#curriculum">
+                  Course
+                </a>
+              </li>
+              <li>
+                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#about">
+                  About
+                </a>
+              </li>
+              <li>
+                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#ayaan">
+                  Ayaan Choudhury
+                </a>
+              </li>
+              <li>
+                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#pricing">
+                  Enroll
+                </a>
+              </li>
+              <li>
+                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#login">
+                  Login
+                </a>
+              </li>
+              <li>
+                <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#reviews">
+                  Reviews
+                </a>
+              </li>
+              <li>
+                <a className="text-purple-100/80 hover:text-white transition text-left cursor-pointer" href="#reviews">
+                  Give Review
+                </a>
+              </li>
+            </ul>
+          </div>
 
-            <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-slate-300 transition-colors">
-                Privacy Policy
+          {/* Column 3: Company */}
+          <div>
+            <div>
+              <h4 className="text-white text-sm font-bold uppercase tracking-widest mb-4">
+                Company
+              </h4>
+              <ul className="space-y-2.5 text-sm">
+                <li>
+                  <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#">
+                    Terms
+                  </a>
+                </li>
+                <li>
+                  <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#">
+                    Privacy
+                  </a>
+                </li>
+                <li>
+                  <a className="text-purple-100/80 hover:text-white transition cursor-pointer" href="#">
+                    Refund
+                  </a>
+                </li>
+              </ul>
+            </div>
+            
+            <a 
+              href="mailto:support@aitinstitutebd.com" 
+              className="mt-5 inline-flex items-center gap-2 text-purple-100/80 hover:text-white transition text-sm group"
+            >
+              <span>Support</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </div>
+
+          {/* Column 4: Follow us */}
+          <div>
+            <h4 className="text-white text-sm font-bold uppercase tracking-widest mb-4">
+              Follow us
+            </h4>
+            <div className="flex gap-3">
+              <a
+                href="https://www.facebook.com/ayaanchoudhury.mentor"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur grid place-items-center text-white transition hover:scale-110 shadow-sm"
+              >
+                <Facebook className="h-4 w-4" />
               </a>
-              <a href="#" className="hover:text-slate-300 transition-colors">
-                Terms of Service
+              <a
+                href="https://t.me/aitinstitute"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram"
+                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur grid place-items-center text-white transition hover:scale-110 shadow-sm"
+              >
+                <Send className="h-4 w-4" />
               </a>
-              <a href="#" className="hover:text-slate-300 transition-colors">
-                Refund Policy
+              <a
+                href="https://www.youtube.com/@AyaanChoudhuryAutomation"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur grid place-items-center text-white transition hover:scale-110 shadow-sm"
+              >
+                <Youtube className="h-4 w-4" />
               </a>
             </div>
           </div>
 
         </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 relative z-10">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-5 text-xs text-purple-100/70 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <span>© 2026 AIT Institute. All rights reserved.</span>
+            <span className="text-[11px] text-purple-200/50">Empowering future creators with AI &amp; Automation</span>
+          </div>
+        </div>
+
       </footer>
 
     </div>
