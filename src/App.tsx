@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense, lazy } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Lenis from "lenis";
 import { gsap } from "gsap";
@@ -8,12 +8,14 @@ import { StackedCards } from "@/components/ui/glass-cards";
 import Pricing from "@/components/ui/pricing-component";
 import SoftwareToolsSection from "@/components/ui/software-tools";
 import FooterReviewSection from "@/components/ui/footer-review-section";
-import MasterclassPage from "@/components/pages/masterclass-page";
-import DashboardPage from "@/components/pages/dashboard-page";
-import FAQPage from "@/components/pages/faq-page";
-import CaseStudiesPage from "@/components/pages/case-studies-page";
-import AboutPage from "@/components/pages/about-page";
-import ContactPage from "@/components/pages/contact-page";
+
+// High-performance dynamic lazy loading for non-initial sub-pages
+const MasterclassPage = lazy(() => import("@/components/pages/masterclass-page"));
+const DashboardPage = lazy(() => import("@/components/pages/dashboard-page"));
+const FAQPage = lazy(() => import("@/components/pages/faq-page"));
+const CaseStudiesPage = lazy(() => import("@/components/pages/case-studies-page"));
+const AboutPage = lazy(() => import("@/components/pages/about-page"));
+const ContactPage = lazy(() => import("@/components/pages/contact-page"));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,13 +33,17 @@ export default function App() {
     "Content Creation",
   ];
 
-  // Global Lenis Smooth Momentum Scroll Engine synchronized with GSAP
+  // High-performance Lenis Smooth Momentum Scroll Engine synchronized with GSAP
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.85, // Ultra-responsive, silky smooth momentum
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
       smoothWheel: true,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.2,
+      syncTouch: false,
     });
 
     lenisRef.current = lenis;
@@ -50,7 +56,7 @@ export default function App() {
     };
 
     gsap.ticker.add(rafHandler);
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(500, 33); // Smooth frame drops prevention
 
     return () => {
       lenis.destroy();
@@ -242,7 +248,14 @@ export default function App() {
       </header>
 
       {/* Animated Multi-Page View Transition Switcher */}
-      <AnimatePresence mode="wait">
+      <Suspense
+        fallback={
+          <div className="min-h-[70vh] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full border-3 border-purple-600 border-t-transparent animate-spin" />
+          </div>
+        }
+      >
+        <AnimatePresence mode="wait">
         
         {/* PAGE 1: FREE MASTERCLASS */}
         {currentPage === "masterclass" && (
@@ -475,28 +488,33 @@ export default function App() {
             </section>
 
             {/* The 20-Module Glass Cards Stacking Curriculum Section */}
-            <div id="curriculum">
+            <div id="curriculum" className="cv-auto gpu-layer">
               <StackedCards />
             </div>
 
             {/* Software & Tools We Use Section */}
-            <SoftwareToolsSection />
+            <div id="software" className="cv-auto gpu-layer">
+              <SoftwareToolsSection />
+            </div>
 
             {/* The Pricing Section (0 TK, 8,200 TK, 50,000 TK) */}
-            <Pricing />
+            <div id="pricing" className="cv-auto gpu-layer">
+              <Pricing />
+            </div>
 
             {/* 3D Perspective Tunnel Hero */}
-            <section className="relative border-t border-slate-200">
+            <section className="relative border-t border-slate-200 gpu-layer cv-auto">
               <PerspectiveTunnelHero />
             </section>
 
             {/* Professional Simple Footer & Student Reviews Section */}
-            <div id="reviews">
+            <div id="reviews" className="cv-auto gpu-layer">
               <FooterReviewSection />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      </Suspense>
     </div>
   );
 }

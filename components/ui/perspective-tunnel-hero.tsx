@@ -65,12 +65,20 @@ function useCameraParallax(enabled: boolean) {
 
     useEffect(() => {
         if (!enabled) return;
+        let rafId: number | null = null;
         const onMove = (e: PointerEvent) => {
-            rawX.set((e.clientX / window.innerWidth - 0.5) * 2);
-            rawY.set((e.clientY / window.innerHeight - 0.5) * 2);
+            if (rafId !== null) return;
+            rafId = requestAnimationFrame(() => {
+                rawX.set((e.clientX / window.innerWidth - 0.5) * 2);
+                rawY.set((e.clientY / window.innerHeight - 0.5) * 2);
+                rafId = null;
+            });
         };
         window.addEventListener("pointermove", onMove, { passive: true });
-        return () => window.removeEventListener("pointermove", onMove);
+        return () => {
+            window.removeEventListener("pointermove", onMove);
+            if (rafId !== null) cancelAnimationFrame(rafId);
+        };
     }, [enabled, rawX, rawY]);
 
     return { x, y };
@@ -173,24 +181,19 @@ export default function PerspectiveTunnelHero() {
         restDelta: 0.0001,
     });
 
-    // Handle wheel scrolling locally inside the 100vh viewport container without trapping page scroll
+    // Handle smooth wheel navigation without trapping page scroll
     useEffect(() => {
         const el = containerRef.current;
         if (!el) return;
 
         const handleWheel = (e: WheelEvent) => {
             const current = rawProgress.get();
-            const delta = e.deltaY * 0.0008; // Speed of tunnel travel
-            const next = current + delta;
-
-            // Only capture wheel event while actively navigating inside the 3D tunnel [0, 1]
-            if ((delta > 0 && current < 0.98) || (delta < 0 && current > 0.02)) {
-                e.preventDefault();
-                rawProgress.set(Math.min(1, Math.max(0, next)));
-            }
+            const delta = e.deltaY * 0.0012; // Snappy speed of tunnel travel
+            const next = Math.min(1, Math.max(0, current + delta));
+            rawProgress.set(next);
         };
 
-        el.addEventListener("wheel", handleWheel, { passive: false });
+        el.addEventListener("wheel", handleWheel, { passive: true });
         return () => el.removeEventListener("wheel", handleWheel);
     }, [rawProgress]);
 

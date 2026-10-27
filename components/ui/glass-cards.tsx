@@ -44,7 +44,7 @@ export const StackedCards: React.FC = () => {
                 start: "top top",
                 end: `+=${scrollDistance}`,
                 pin: true,
-                scrub: 0.6, // Fast, responsive scrub
+                scrub: 0.35, // Ultra-fast, butter-smooth responsive scrub
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
             }
@@ -83,7 +83,8 @@ export const StackedCards: React.FC = () => {
         });
 
         return () => {
-            ScrollTrigger.getAll().forEach(t => t.kill());
+            tl.scrollTrigger?.kill();
+            tl.kill();
         };
     }, [activeCards]);
 

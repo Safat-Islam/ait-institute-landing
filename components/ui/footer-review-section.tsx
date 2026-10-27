@@ -512,7 +512,7 @@ export const FooterReviewSection: React.FC = () => {
             {PROOF_CARDS.map((card) => (
               <div
                 key={card.id}
-                className="group relative flex flex-col justify-between bg-white rounded-2xl border border-purple-100/90 shadow-[0_4px_25px_-5px_rgba(147,51,234,0.06)] hover:shadow-[0_12px_35px_-5px_rgba(147,51,234,0.14)] hover:border-purple-300 transition-all duration-300 p-5 sm:p-6"
+                className="group relative flex flex-col justify-between bg-white rounded-2xl border border-purple-100/90 shadow-[0_4px_25px_-5px_rgba(147,51,234,0.06)] hover:shadow-[0_12px_35px_-5px_rgba(147,51,234,0.14)] hover:border-purple-300 transition-all duration-300 p-5 sm:p-6 gpu-layer"
               >
                 
                 {/* Top Badge & Metric Title */}
@@ -634,7 +634,7 @@ export const FooterReviewSection: React.FC = () => {
               return (
                 <div
                   key={review.id}
-                  className="flex flex-col justify-between p-6 rounded-2xl bg-white border border-purple-100/90 hover:border-purple-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_25px_-4px_rgba(147,51,234,0.1)] transition-all duration-200"
+                  className="flex flex-col justify-between p-6 rounded-2xl bg-white border border-purple-100/90 hover:border-purple-300 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_25px_-4px_rgba(147,51,234,0.1)] transition-all duration-200 gpu-layer"
                 >
                   <div>
                     {/* 5 Purple Stars (★★★★★) matching screenshot 2 */}

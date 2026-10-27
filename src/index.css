@@ -51,9 +51,28 @@
   }
 }
 
+/* GPU Hardware Layer Promotion */
+.gpu-layer {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
 /* Hardware isolation for background ambient blur glow circles */
 .bg-glow-hardware {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   will-change: transform;
+  contain: paint;
+}
+
+/* Content visibility optimizations for below-the-fold sections */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
+/* Smooth motion performance */
+* {
+  text-rendering: optimizeLegibility;
 }
